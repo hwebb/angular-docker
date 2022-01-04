@@ -1,0 +1,17 @@
+FROM node:16
+
+WORKDIR /app
+
+#RUN groupadd -r myuser && useradd -r -g myuser myuser
+
+COPY package*.json ./
+
+# RUN npm install devextreme@21.2 devextreme-angular@21.2
+RUN npm install --legacy-peer-deps
+
+# COPY . /app/
+
+EXPOSE 4200
+
+
+ENTRYPOINT ["npm", "start"]
